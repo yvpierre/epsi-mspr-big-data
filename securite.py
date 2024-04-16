@@ -15,8 +15,8 @@ grouped_data.columns = ['Année', 'Code Département', 'Taux pour Mille Moyen']
 # Ajuster le format de l'année
 grouped_data['Année'] = grouped_data['Année'].apply(lambda x: 2000 + x)
 
-# Chemin du nouveau fichier Excel à enregistrer
-output_file_path = 'output/clean_infos-securite-par-departement-2016-2023.xlsx'
+# Chemin du nouveau fichier CSV à enregistrer
+output_csv_path = 'output/clean_infos-securite-par-departement-2016-2023.csv'
 
-# Enregistrer le DataFrame dans un fichier Excel
-grouped_data.to_excel(output_file_path, index=False)
+# Enregistrer le DataFrame dans un fichier CSV
+grouped_data.to_csv(output_csv_path, index=False)
