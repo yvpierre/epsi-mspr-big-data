@@ -15,6 +15,8 @@ grouped_data.columns = ['Année', 'Code Département', 'Taux pour Mille Moyen']
 # Ajuster le format de l'année
 grouped_data['Année'] = grouped_data['Année'].apply(lambda x: 2000 + x)
 
+grouped_data['Code Département'] = grouped_data['Code Département'].apply(lambda x: str(x).zfill(2))
+
 # Chemin du nouveau fichier CSV à enregistrer
 output_csv_path = 'output/clean_infos-securite-par-departement-2016-2023.csv'
 
