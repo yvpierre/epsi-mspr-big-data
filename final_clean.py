@@ -54,6 +54,27 @@ data_2022_with_unemployment = pd.merge(data_final_adjusted[data_final_adjusted['
 data_final_with_unemployment = pd.concat([data_2017_with_unemployment, data_2022_with_unemployment], ignore_index=True)
 data_final_with_unemployment.drop(columns=['Département'], inplace=True)
 
+parti_politique = {
+    'LE PEN': 'Extrême droite',
+    'ARTHAUD': 'Extrême gauche',
+    'ROUSSEL': 'Gauche',
+    'MACRON': 'Droite',
+    'LASSALLE': 'Gauche',
+    'ZEMMOUR': 'Extrême droite',
+    'MÉLENCHON': 'Extrême gauche',
+    'HIDALGO': 'Gauche',
+    'JADOT': 'Gauche',
+    'PÉCRESSE': 'Droite',
+    'FILLON': 'Droite',
+    'HAMON': 'Gauche',
+    'DUPONT-AIGNAN': 'Droite',
+    'POUTOU': 'Extrême gauche',
+    'ASSELINEAU': 'Droite',
+    'CHEMINADE': 'Gauche'
+}
+
+data_final_with_unemployment['Parti'] = data_final_with_unemployment['Nom'].map(parti_politique)
+
 # Sauvegarder le DataFrame final ajusté dans un nouveau fichier CSV
 output_path = 'output/fichier_final_ajuste_avec_chomage.xlsx'
 data_final_with_unemployment.to_excel(output_path, index=False)
