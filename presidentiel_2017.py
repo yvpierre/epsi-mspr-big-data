@@ -33,5 +33,5 @@ df_long.sort_values(by=['Code du département', 'Libellé du département', 'Nom
 df_long.insert(0, 'Année', 2017)
 
 # Export the transformed data to a new Excel file
-output_path = 'output/2017_presidentiel_departement.xlsx'
-df_long.to_excel(output_path, index=False)
+output_csv_path = 'output/2017_presidentiel_departement.csv'
+df_long.to_csv(output_csv_path, index=False)
